@@ -1,0 +1,10 @@
+.Product {
+    height: 20vh;
+    width: 30vw;
+    background-color: #D34735;
+    display: flex;
+    align-items: column;
+    /* border-radius: 40px; */
+    margin-left: 10px;
+    margin-top: 20px;
+}

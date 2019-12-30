@@ -1,0 +1,47 @@
+.FormHolder{
+    margin-right: 50px;
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 40px;
+  }
+  
+  .Form{
+    background-color: #3AD886;
+    margin-top: 10px;
+    width: 20vw;
+    height: 50vh;
+    display: flex;
+    justify-content: right;
+    flex-direction: column;
+    align-items: center;
+    /* border-radius: 10px; */
+    margin-top: 20px;
+    margin-right: 20vw;
+  }
+  
+  .Image {
+      height: 10vh;
+      width: 10vw;
+      background-color: white;
+  }
+  
+  
+  .FormInputs{
+    width: 90%;
+    
+  }
+  
+  .FormInput{
+    width: 100%;
+  }
+
+
+  button{
+    margin-top: 5px;;
+    border: none;
+    box-shadow: none;
+    font-weight: 600;
+    cursor: pointer;
+  }
