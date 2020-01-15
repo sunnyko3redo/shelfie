@@ -2,8 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import Dashboard from "./Components/Dashboard/Dashboard";
 import Form from "./Components/Form/Form";
-import Header from "./Components/Header/Header";
-import Product from "./Components/Product/Product";
+// import Header from "./Components/Header/Header";
 import axios from "axios";
 
 class App extends Component {
@@ -15,7 +14,7 @@ class App extends Component {
   };
 
   setId = (id) => {
-    axios.get(`api/products/${id}`).then(res => {
+    axios.get(`/api/products/${id}`).then(res => {
       let { name, price, img } = res.data[0];
       this.setState({
         editId: id,
@@ -32,8 +31,7 @@ class App extends Component {
       <div className="Realheader"></div>
         <div className="Slots">
           <Dashboard />
-          <Header />
-          <Product />
+          {/* <Header /> */}
         </div>
         <Form />
       </div>

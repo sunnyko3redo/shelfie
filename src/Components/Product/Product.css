@@ -1,10 +1,40 @@
 .Product {
     height: 20vh;
-    width: 30vw;
+    width: 40vw;
     background-color: #D34735;
     display: flex;
     align-items: column;
-    /* border-radius: 40px; */
+    justify-content: space-around;
+    border-radius: 20px;
     margin-left: 10px;
     margin-top: 20px;
+    padding: 10px;
+
+}
+.input{
+    height: 15px;
+    width: 45px;
+}
+img{
+    height: 12vh;
+    width: 8vw;
+    margin-top: 5px;
+    padding: 5px;
+    
+}
+
+.infobox{
+    font-size: 25px;
+    padding: 5px;
+
+}
+
+.b1{
+    height: 5vh;
+    width: 5vw;
+    background-color: #3AD886;
+    border-radius: 10px;
+    padding: 5px;
+
+
 }

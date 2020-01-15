@@ -1,12 +1,12 @@
 module.exports = {
-    getAll (res, req)
+    getAll (req, res)
  {
     const db = req.app.get('db')
     db.getAll().then(result => {
         res.status(200).send(result)
 
     }).catch(err => {
-        res.sattus(500).send(`Failed to get inventory`)
+        res.status(500).send(`Failed to get inventory`)
     })
 },
 
@@ -22,8 +22,10 @@ getById (req, res){
 create (req, res) {
     const db = req.app.get('db')
     let {name, price, img} = req.body
-    db.create(name, price, img).then(result => {
-        res.sendStatus(200)
+    console.log(req.body)
+    db.create([name, price, img]).then(result => {
+        console.log(result)
+        res.status(200).send(result)
     }).catch(err => {
         res.status(500).send('Failed to create data')
     })
@@ -32,6 +34,7 @@ create (req, res) {
 delete(req, res){
     const db=req.app.get('db')
     let{id} = req.params
+    console.log(id)
     db.delete(id).then(result => {
         res.sendStatus(200)
     }).catch(err => {
@@ -42,9 +45,9 @@ delete(req, res){
 update (req, res){
     const db=req.app.get('db')
     let {name, price, img} = req.body
-    let {id} = req.body
+    let {id} = req.params
 
-    db.update(id, name, +price, img).then(result => {
+    db.update([id, name, +price, img]).then(result => {
         res.sendStatus(200)
     }).catch(err => {
         res.status(500).send('failed to update')

@@ -32,7 +32,7 @@ class Form extends Component {
         img: this.state.imgurl
     }
 
-    axios.put(`/api/products/${this.props.editId}`, update).then(() => {
+    axios.post(`/api/products`, update).then(() => {
         this.clearInputs()
     })
   }
@@ -41,7 +41,7 @@ class Form extends Component {
     return (
       <div className="Formholder">
         <div className="Form">Product Image
-          <img className="Image" src="https://www.mundohipster.com/wp-content/uploads/2019/01/zapatos-hipster-600x400.jpg"/>
+          <img className="Image" src={this.state.imgurl} />
         
 
         <span className="InputNames">name</span>
@@ -58,16 +58,16 @@ class Form extends Component {
         onChange={this.handleChange}
         value={this.state.price}></input>
 
-        <span className="InputNames">Imgurl</span>
+        <span className="InputNames">imgurl</span>
         <input className="inputs"
-        type="number"
+        type="text"
         name="imgurl"
         onChange={this.handleChange}
         value={this.state.imgurl}></input>
 
 
         <button onClick={this.clearInputs}>Cancel</button>
-        <button onClick={this.addItems}>Add</button>
+        <button onClick={this.addItems}>Add To Inventory</button>
       </div></div>
     );
   }

@@ -5,6 +5,15 @@ const massive = require('massive')
 const {SERVER_PORT, CONNECTION_STRING} = process.env
 const ctrl = require('./controller')
 
+massive(CONNECTION_STRING).then(dbInstance => {
+    app.set('db', dbInstance)
+    
+    
+    app.listen(SERVER_PORT, ()=> {
+        console.log(`Server is listening on port ${SERVER_PORT}`)
+    })
+})
+
 
 
 const app = express()
@@ -18,7 +27,3 @@ app.delete('/api/products/:id', ctrl.delete)
 app.put('/api/products/:id', ctrl.update)
 
 
-
-app.listen(SERVER_PORT, ()=> {
-    console.log(`Server is listening on port ${SERVER_PORT}`)
-})

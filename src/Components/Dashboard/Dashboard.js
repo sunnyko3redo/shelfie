@@ -9,7 +9,9 @@ import './Dashboard.css'
 class Dashboard extends Component {
 
     state = {
-        inventory: []
+        inventory: [],
+        edit: false,
+
     }
    
 
@@ -19,10 +21,19 @@ componentDidMount() {
         this.setState({
             inventory: res.data
         })
+
+        console.log(res)
     }).catch(err => {
         console.log(`error: ${err}`)
     })
 }
+
+setEdit = (edit) => {    
+    this.setState({
+        edit: !this.state.edit
+    }) 
+}
+
 
 setId = (id)=> {
     this.props.setId(id)
@@ -34,7 +45,10 @@ setId = (id)=> {
 render(){
   
     return(
-        <div className="Dashboard" src="https://www.mundohipster.com/wp-content/uploads/2019/01/zapatos-hipster-600x400.jpg> Dashboard"></div>
+        <div className="Dashboard" >{this.state.inventory.map((e,i)=>{
+            console.log(e,i)
+            return <Product item={e} test="hi"  id={e.id} edit={this.state.edit} setEdit={this.setEdit} />
+        })}</div>
 
         )
     }
